@@ -1,0 +1,6 @@
+== Welcome to ConfigMan a systems configuration mamanger.
+
+This is a personal project to allow me to expermient with Rails 3.
+
+The aim of Configman is to allow recording of the website urls and the severs they are deployed to. I aim to have automatic reminding
+of soon to expire urls and SSL certificates and also allow the changes to configuration to be recorded.
