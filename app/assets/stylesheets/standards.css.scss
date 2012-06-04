@@ -1,0 +1,18 @@
+body {
+  font: {
+    family: Arial, Sans-serif;
+    size: 14px;
+  }
+  line-height: 1.5em;
+}
+
+.listTable {
+
+  .action, .date {
+     text-align: center;
+  }
+}
+
+.action_links {
+  float: right;
+}

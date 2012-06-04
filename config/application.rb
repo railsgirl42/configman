@@ -17,7 +17,7 @@ end
 
 module Configman
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
+    config.autoload_paths << "#{config.root}/lib"    # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
@@ -64,5 +64,13 @@ module Configman
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Configure generators values. Many other options are available, be sure to check the documentation.
+    config.generators do |g|
+      g.orm             :active_record
+      g.template_engine :erb
+      g.test_framework  :rspec
+      g.fixture_replacement :factory_girl, :dir => 'spec/factories'
+    end
   end
 end

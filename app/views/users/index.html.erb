@@ -1,0 +1,20 @@
+<% title "Users" %>
+
+<table class="listTable">
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th class='action'></th>
+    <th class='action'> </th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%=h user.username %></td>
+      <td><%=h user.email %></td>
+      <td class='action'><%= link_to "Edit", edit_user_path(user) %></td>
+      <td class='action'><%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @users, :params => {} %>
+<p class='action_links'><%= link_to "Add new User", new_user_path %></p>
