@@ -1,0 +1,17 @@
+<table class="listTable sort">
+  <tr>
+    <th><%= sort_link @search, :username, 'Username' %></th>
+    <th><%= sort_link @search, :email, 'Email' %></th>
+    <th class='action'></th>
+    <th class='action'> </th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.username %></td>
+      <td><%= user.email %></td>
+      <td class='action'><%= link_to "Edit", edit_user_path(user) %></td>
+      <td class='action'><%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @users, :params => {} %><span class='page-info'> <%= page_entries_info @users %></span>

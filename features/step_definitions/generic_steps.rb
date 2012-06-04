@@ -38,8 +38,7 @@ end
 
 Then /^I should see the following (.*)s:$/ do |record, expected_table|
   rows = find("table.listTable").all('tr')
-  t = rows.map { |r| r.all('th,td').map { |c| c.text.strip } }
-#  t.map! { |r| r.map! { |c| c.gsub(/<.+?>/, '').gsub(/\n/, '').gsub(/ +/, ' ') } }
+  t = rows.map { |r| r.all('th,td').map { |c| c.text.strip.gsub(/<.+?>/, '').gsub(/\n/, '').gsub(/ +/, ' ').gsub(/\W/,'') } }
   expected_table.diff!(t)
 end
 
@@ -85,6 +84,12 @@ When /^(?:|I )fill in textfield "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/
     textfield = find_field(field)
     fill_in(field, :with => value)
     page.driver.browser.execute_script %Q{$("##{textfield['id']}").trigger("change");}
+  end
+end
+
+When /^I sort by "([^"]*)"(?: within "([^"]*)")?$/ do |column, selector|
+  with_scope(selector) do
+     click_link(column)
   end
 end
 

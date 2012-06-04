@@ -1,20 +1,13 @@
 <% title "Users" %>
+<%= search_form_for @search,  :url => users_path, :html => {:class => 'search'} do |f| %>
+  <%= f.hidden_field :s, value: @search.s[0].name %>
+  <%= f.label :username_cont, "Search for a user:" %>
+  <%= f.text_field :username_cont, :size => 15, :class => 'search_field' %>
+  <%= f.submit "Search" %>
+<% end %>
 
-<table class="listTable">
-  <tr>
-    <th>Username</th>
-    <th>Email</th>
-    <th class='action'></th>
-    <th class='action'> </th>
-  </tr>
-  <% @users.each do |user| %>
-    <tr>
-      <td><%=h user.username %></td>
-      <td><%=h user.email %></td>
-      <td class='action'><%= link_to "Edit", edit_user_path(user) %></td>
-      <td class='action'><%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
-<%= will_paginate @users, :params => {} %>
+<div id='users'>
+<%= render 'users'%>
+</div>
 <p class='action_links'><%= link_to "Add new User", new_user_path %></p>
+

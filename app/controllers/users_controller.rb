@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
-  before_filter :login_required, :except => [:new, :create]
+  before_filter :login_required, except: [:new, :create]
 
   def index
-    @users = User.order(:username).paginate(:page => params[:page], :per_page => PER_PAGE)
+    session[:user_search] = params[:q] if !params[:q].nil? && params[:page].nil?
+    session[:user_search] ||= {s: 'username'}
+    @search = User.search(session[:user_search])
+    @users = @search.result.paginate(page: params[:page], per_page: PER_PAGE)
   end
 
   def new
@@ -12,7 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to users_path, :notice => "Thank you for signing up! You are now logged in."
+      redirect_to users_path, notice: "Thank you for signing up! You are now logged in."
     else
       render :action => 'new'
     end
@@ -25,7 +28,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to users_path, :notice => "Your profile has been updated."
+      redirect_to users_path, notice: "Your profile has been updated."
     else
       render :action => 'edit'
     end

@@ -11,7 +11,7 @@ Feature: Manage Users
     |2 | admin    |secret  |
     |3 | metaadmin|secret  |
 
-
+@javascript
 Scenario: List users as admin
   Given I am logged in as "metaadmin" with password "secret"
   When I go to the list of users
@@ -20,6 +20,12 @@ Scenario: List users as admin
       |admin    |
       |metaadmin|
       |tutor    |
+  When I sort by "Username"
+  Then I should see the following users:
+      |Username |
+      |tutor    |
+      |metaadmin|
+      |admin    |
 
  Scenario Outline: Create valid and invalid users
   Given I am logged in as "metaadmin" with password "secret"
@@ -58,6 +64,11 @@ Scenario: List users as admin
   Scenario: Delete User as metaadmin
     Given I am logged in as "metaadmin" with password "secret"
     And I am on the list of users
+    And I should see the following users:
+      |Username |
+      |admin    |
+      |metaadmin|
+      |tutor    |
     When I delete the 3rd user
     And I confirm popup
     Then I should see the following users:
