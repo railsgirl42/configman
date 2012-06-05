@@ -1,0 +1,38 @@
+<%% title "<%= plural_name.titleize %>" %>
+
+<%%= search_form_for @search,  url: <%= instances_name %>_path, html: {:class => 'search'} do |f| %>
+  <%%= f.hidden_field :s, value: @search.s[0].name %>
+  <%%= f.label :<%= model_attributes[0].name %>_cont, "Search for a <%= model_attributes[0].human_name %>:" %>
+  <%%= f.text_field :<%= model_attributes[0].name %>_cont, size: 15, class: 'search_field' %>
+  <%%= f.submit "Search" %>
+<%% end %>
+
+<div id='<%= instances_name %>'>
+  <table class='listTable sort'>
+    <tr>
+    <%- for attribute in model_attributes -%>
+      <th><%%= sort_link @search, :<%= attribute.name %>, '<%= attribute.human_name.titleize %>' %></th>
+    <%- end -%>
+    </tr>
+    <%% @<%= instances_name %>.each do |<%= instance_name %>| %>
+      <tr>
+      <%- for attribute in model_attributes -%>
+        <td><%%= <%= instance_name %>.<%= attribute.name %> %></td>
+      <%- end -%>
+      <%- if action? :show -%>
+        <td class='action'><%%= link_to "Show", <%= item_path %> %></td>
+      <%- end -%>
+      <%- if action? :edit -%>
+        <td class='action'><%%= link_to "Edit", <%= item_path :action => :edit %> %></td>
+      <%- end -%>
+      <%- if action? :destroy -%>
+        <td class='action'><%%= link_to "Destroy", <%= item_path %>, :confirm => 'Are you sure?', :method => :delete %></td>
+      <%- end -%>
+      </tr>
+    <%% end %>
+  </table>
+</div>
+
+<%- if action? :new -%>
+<p class='action_links'><%%= link_to "New <%= singular_name.titleize %>", <%= item_path :action => :new %> %></p>
+<%- end -%>

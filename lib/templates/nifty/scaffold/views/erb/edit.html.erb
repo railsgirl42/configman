@@ -1,0 +1,9 @@
+<%% title "Edit <%= singular_name.titleize %>" %>
+
+<%= render_form %>
+
+<%- if action? :show -%>
+<p>
+  <%%= link_to "Show", <%= item_path :instance_variable => true %> %> |
+</p>
+<%- end -%>

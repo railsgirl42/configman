@@ -1,0 +1,19 @@
+<%%= form_for <%= item_path :instance_variable => true %> do |f| %>
+  <%%= f.error_messages %>
+  <table class='formTable'>
+  <%- for attribute in model_attributes -%>
+    <tr>
+      <th><%%= f.label :<%= attribute.name %> %></th>
+      <td><%%= f.<%= attribute.field_type %> :<%= attribute.name %> %></td>
+    </tr>
+  <%- end -%>
+  <tr>
+    <th></th>
+    <td class='action_links'>
+      <%- if action? :index -%>
+      <%%= link_to "Cancel", <%= items_path %>, class: 'button' %>
+      <%- end -%>
+      <%%= f.submit "Save", class: 'button' %>
+    </td>
+  </table>
+<%% end %>
