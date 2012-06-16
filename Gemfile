@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.5'
+gem 'rails', '3.2.6'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -24,7 +24,7 @@ gem 'jquery-rails'
 
 gem "rspec-rails", :group => [:test, :development]
 group :development do
-  gem 'guard', '= 1.0.3' # the latest 1.1.0 version has an bug see https://github.com/guard/guard/issues/283
+  gem 'guard'
   gem 'guard-cucumber'
   gem "nifty-generators"
 end

@@ -1,0 +1,18 @@
+---
+:skip_files:
+- lib/templates/nifty/scaffold/actions/edit.rb
+- lib/templates/nifty/scaffold/actions/new.rb
+- lib/templates/nifty/scaffold/actions/show.rb
+- lib/templates/nifty/scaffold/actions/create.rb
+- lib/templates/nifty/scaffold/actions/destroy.rb
+- lib/templates/nifty/scaffold/actions/index.rb
+- lib/templates/nifty/scaffold/actions/update.rb
+- lib/templates/nifty/scaffold/controller.rb
+- lib/templates/nifty/scaffold/migration.rb
+- lib/templates/nifty/scaffold/tests/rspec/actions/create.rb
+- lib/templates/nifty/scaffold/tests/rspec/actions/destroy.rb
+- lib/templates/nifty/scaffold/tests/rspec/actions/edit.rb
+- lib/templates/nifty/scaffold/tests/rspec/actions/show.rb
+- lib/templates/nifty/scaffold/tests/rspec/actions/update.rb
+- lib/templates/nifty/scaffold/tests/rspec/controller.rb
+- lib/templates/nifty/scaffold/tests/rspec/model.rb
