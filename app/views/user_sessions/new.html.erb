@@ -4,13 +4,18 @@
 
 <%= form_for @user_session do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p><%= f.submit "Log in" %></p>
+  <table class='formTable'>
+    <tr>
+      <th><%= f.label :username %></th>
+      <td><%= f.text_field :username, required: true %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :password %></th>
+      <td><%= f.password_field :password, required: true %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td class='action_links'><%= f.submit "Log in", class: 'button' %></td>
+    </tr>
+  </table>
 <% end %>

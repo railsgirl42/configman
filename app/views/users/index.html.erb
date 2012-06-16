@@ -1,4 +1,5 @@
 <% title "Users" %>
+
 <%= search_form_for @search,  :url => users_path, :html => {:class => 'search'} do |f| %>
   <%= f.hidden_field :s, value: @search.s[0].name %>
   <%= f.label :username_cont, "Search for a user:" %>
@@ -7,7 +8,7 @@
 <% end %>
 
 <div id='users'>
-<%= render 'users'%>
+  <%= render 'users'%>
 </div>
 <p class='action_links'><%= link_to "Add new User", new_user_path %></p>
 
