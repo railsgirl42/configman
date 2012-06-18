@@ -14,7 +14,7 @@ $padding: 5px;
 
 
 header {
-  @include background-image(linear-gradient(lighten($main-color,5%), darken($main-color,30%)));
+  @include background(linear-gradient(lighten($main-color,5%), darken($main-color,30%)));
   @include pie;
   text-align: right;
   padding: 8px 100px;
@@ -43,7 +43,8 @@ nav {
 }
 
 footer {
-  @include background-image(linear-gradient(darken($main-color,30%), darken($main-color,5%)));
+  @include background(linear-gradient(darken($main-color,30%), darken($main-color,5%)));
+  @include pie;
   text-align: center;
   padding: 8px 0;
   position: relative;
