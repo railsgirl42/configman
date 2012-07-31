@@ -17,24 +17,30 @@ header {
   @include background(linear-gradient(lighten($main-color,5%), darken($main-color,30%)));
   @include pie;
   text-align: right;
-  padding: 8px 100px;
+  padding: 2px 100px 2px 20px;
   position: relative;
+
 }
 
 nav {
   font-weight: bold;
+  vertical-align: middle;
 
   a {
-    padding: $padding;
-    text-decoration: none;
-
-    &:hover {
-      color: #999999;
-    }
+    padding: 0;
   }
 
   ul {
     @include inline-block-list($padding);
+
+    a {
+      padding: $padding;
+      text-decoration: none;
+
+      &:hover {
+        color: #999999;
+      }
+    }
   }
 
   .brand {
@@ -140,7 +146,24 @@ a {
   td {
     border: 1px solid $list-table-border;
     padding: 3px;
+
+    a {
+      padding: 1px 0 1px 23px;
+    }
   }
 
 }
+
+.action_links a {
+  padding: 1px 0 1px 23px;
+}
+
+.icons-search {
+  height: 26px;
+  padding-left: 23px;
+}
+
+$icons-spacing: 5px;
+@import "icons/*.png";
+@include all-icons-sprites;
 

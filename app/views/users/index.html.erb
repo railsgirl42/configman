@@ -3,12 +3,12 @@
 <%= search_form_for @search,  :url => users_path, :html => {:class => 'search'} do |f| %>
   <%= f.hidden_field :s, value: @search.s[0].name %>
   <%= f.label :username_cont, "Search for a user:" %>
-  <%= f.text_field :username_cont, :size => 15, :class => 'search_field' %>
-  <%= f.submit "Search" %>
+  <%= f.text_field :username_cont, :class => 'search_field ' %>
+  <%= f.submit "Search", class: "button" %>
 <% end %>
 
 <div id='users'>
   <%= render 'users'%>
 </div>
-<p class='action_links'><%= link_to "Add new User", new_user_path %></p>
+<p class='action_links'><%= link_to "Add new User", new_user_path, class: 'icons-add button' %></p>
 
