@@ -14,8 +14,10 @@
 /log/*.log
 /log/*.log.*
 /tmp
+/app/assets/images/sprites
 
 # Ignore sensitive files
 config/database.yml
 config/initializers/secret_token.rb
+
 

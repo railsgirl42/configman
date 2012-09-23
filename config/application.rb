@@ -61,10 +61,10 @@ module Configman
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.compass.generated_images_dir = "tmp/cache/sprites"
-    config.assets.paths << Rails.root.join('tmp','cache', 'sprites')
+    config.compass.generated_images_dir = "app/assets/images/sprites"
+    config.assets.paths << Rails.root.join('app','assets', 'images', 'sprites')
     # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.0'
+    config.assets.version = '1.1'
 
     # Configure generators values. Many other options are available, be sure to check the documentation.
     config.generators do |g|
