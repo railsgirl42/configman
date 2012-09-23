@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -24,11 +24,13 @@ gem 'jquery-rails'
 
 gem "rspec-rails", :group => [:test, :development]
 group :development do
+  gem 'rb-inotify', '~> 0.8.8'
   gem 'guard'
   gem 'guard-cucumber'
   gem "nifty-generators"
 end
 group :test do
+  gem "selenium-webdriver", "2.22.1"
   gem "factory_girl_rails"
   gem "capybara"
   gem "guard-rspec"
