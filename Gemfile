@@ -17,8 +17,8 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'compass-rails'
 end
+gem 'compass-rails'
 
 gem 'jquery-rails'
 
@@ -48,7 +48,8 @@ end
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
+gem 'rvm-capistrano'
 
 # To use debugger
 # gem 'debugger'
