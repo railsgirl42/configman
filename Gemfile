@@ -30,7 +30,7 @@ group :development do
   gem "nifty-generators"
 end
 group :test do
-  gem "selenium-webdriver", "2.22.1"
+  gem "selenium-webdriver"
   gem "factory_girl_rails"
   gem "capybara"
   gem "guard-rspec"
