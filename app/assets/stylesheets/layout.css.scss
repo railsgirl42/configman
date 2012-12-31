@@ -1,4 +1,4 @@
-$pie-behavior: url("/assets/PIE.htc");
+$pie-behavior: url(asset_path("PIE.htc",behaviour));
 $pie-base-class: pie-element;
 .pie-element {
   @include pie-element(relative);
