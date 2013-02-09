@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -36,7 +36,7 @@ group :test do
   gem "guard-rspec"
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
-  gem 'mocha'
+  gem 'mocha', require: 'mocha_standalone'
   gem 'spork'
   gem 'guard-spork'
 end
