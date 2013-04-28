@@ -28,6 +28,7 @@ group :development do
   gem 'guard'
   gem 'guard-cucumber'
   gem "nifty-generators"
+  gem 'quiet_assets'
 end
 group :test do
   gem "selenium-webdriver"

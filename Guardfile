@@ -16,7 +16,7 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAIL
   watch('spec/support/')
 end
 
-guard 'rspec', :all_after_pass => false, :cli => '--drb' do
+guard 'rspec', :all_after_pass => false, all_on_start: false, :cli => '--drb' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
@@ -35,7 +35,7 @@ guard 'rspec', :all_after_pass => false, :cli => '--drb' do
 end
 
 
-guard 'cucumber', :cli => '--drb' do
+guard 'cucumber', all_after_pass: false, all_on_start: false, cli: '--drb --no-profile --tags @wip -f pretty', run_all: {cli: '-p default'} do
   watch(%r{^features/.+\.feature$})
   watch(%r{^features/support/.+$})          { 'features' }
   watch(%r{^features/step_definitions/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }
