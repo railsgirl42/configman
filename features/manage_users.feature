@@ -27,6 +27,7 @@ Scenario: List users as admin
       |metaadmin|
       |admin    |
 
+@javascript
  Scenario Outline: Create valid and invalid users
   Given I am logged in as "metaadmin" with password "secret"
   And  I am on the list of users
@@ -40,20 +41,21 @@ Scenario: List users as admin
   And I should have <count> users
 
     Examples:
-    |username|email            |password|confirmation|action                                                |count|
-    |test1   |test1@example.com|password|password    |see "Thank you for signing up! You are now logged in."|4    |
-    |test2   |test2@example.com|password|different   |see "Password doesn't match confirmation"             |3    |
-    |test3   |test3@example.com|password|password    |see "Thank you for signing up! You are now logged in."|4    |
-    |t       |test4@example.com|password|password    |see "Username is too short (minimum is 3 characters)" |3    |
-    |        |test5@example.com|password|password    |see "Username is too short (minimum is 3 characters)" |3    |
+    |username|email            |password|confirmation|action                                                                   |count|
+    |test1   |test1@example.com|password|password    |see "Thank you for signing up! You are now logged in."                   |4    |
+    |test2   |test2@example.com|password|different   |see "Password doesn't match confirmation" within ".ui-dialog"            |3    |
+    |test3   |test3@example.com|password|password    |see "Thank you for signing up! You are now logged in."                   |4    |
+    |t       |test4@example.com|password|password    |see "Username is too short (minimum is 3 characters)" within ".ui-dialog"|3    |
+    |        |test5@example.com|password|password    |see "Username is too short (minimum is 3 characters)" within ".ui-dialog"|3    |
 
-
+@javascript
   Scenario: Edit user as metaadmin
     Given I am logged in as "metaadmin" with password "secret"
     And I am on the list of users
     When I edit the 2nd user
     When I fill in "Email" with "newemail@example.com"
     And I press "Update"
+    And I wait for the ajax to complete
     Then I should see the following users:
       |Username |
       |admin    |

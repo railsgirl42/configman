@@ -14,10 +14,15 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    if @user.save
-      redirect_to users_path, notice: "Thank you for signing up! You are now logged in."
-    else
-      render :action => 'new'
+    respond_to do |format|
+      if @user.save
+        flash[:notice] = "Thank you for signing up! You are now logged in."
+        format.html { redirect_to users_path}
+        format.js { render :js => "window.location = '#{users_path}'" }
+      else
+        format.html {  render 'new' }
+        format.js { render 'error' }
+      end
     end
   end
 
@@ -27,10 +32,14 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(params[:user])
-      redirect_to users_path, notice: "Your profile has been updated."
-    else
-      render :action => 'edit'
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to users_path, notice: "Your profile has been updated." }
+        format.js { render :js => "window.location = '#{users_path}'" }
+      else
+        format.html { render 'edit' }
+        format.js { render 'error' }
+      end
     end
   end
 

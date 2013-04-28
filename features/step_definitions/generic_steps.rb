@@ -93,3 +93,10 @@ When /^I sort by "([^"]*)"(?: within "([^"]*)")?$/ do |column, selector|
   end
 end
 
+Then /^I wait for the ajax to complete$/ do
+  page.wait_until(5) do
+    page.evaluate_script 'jQuery.active == 0'
+  end
+end
+
+

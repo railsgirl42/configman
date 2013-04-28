@@ -1,0 +1,44 @@
+.ui-dialog{
+  border: none;
+  background: $main-color;
+  padding: 0.2em 0.2em 6em;
+  @include box-shadow(#555 10px 10px 16px 1px);
+  @include border-radius(8px);
+  @include pie;
+
+  .ui-dialog-titlebar-close {
+    top: 1.3em;
+  }
+
+  .ui-widget-header .ui-icon {
+    background-image: image-url('ui-icons_ffffff_256x240.png');
+  }
+
+  #container {
+    background: transparent;
+  }
+
+  .action_links {
+    bottom: 20px;
+    position: absolute;
+    right: 20px;
+  }
+}
+
+.ui-dialog-title {
+  background: $main-color;
+  float:none !important;
+  display: block;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.ui-widget-header,
+.popup_dialog .ui-widget-content {
+  background: transparent;
+  border: none;
+}
+
+.ui-widget-overlay {
+  opacity: 0.6;
+}

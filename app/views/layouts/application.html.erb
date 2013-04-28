@@ -16,7 +16,7 @@
       <header>
         <%= render 'layouts/navigation' %>
       </header>
-      <div class="main" role="main">
+      <div id='main' class="main" role="main">
         <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>
         <% end %>
