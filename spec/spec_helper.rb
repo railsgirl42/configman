@@ -14,6 +14,8 @@ Spork.prefork do
   require 'rspec/autorun'
   require 'authlogic/test_case'
   include Authlogic::TestCase
+  require 'mocha/setup'
+
   # This file is copied to spec/ when you run 'rails generate rspec:install'
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
@@ -40,6 +42,11 @@ Spork.prefork do
     # automatically. This will be the default behavior in future versions of
     # rspec-rails.
     config.infer_base_class_for_anonymous_controllers = false
+    config.treat_symbols_as_metadata_keys_with_true_values = true
+
+    config.order = "random"
+    config.filter_run focus: true
+    config.run_all_when_everything_filtered = true
   end
 end
 
